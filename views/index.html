@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form method="post" action="/ascii">
+        <label for="userInput"></label>
+        <textarea name="userInput" id="userInput" placeholder="Enter your input"></textarea>
+        <label for="selectType">
+            <select name="selectType" id="selectType">
+                <option value="../data/shadow.txt">Shadow</option>
+                <option value="../data/standard.txt">Standard</option>
+                <option value="../data/thinkertoy.txt">Thinkertoy</option>
+            </select>
+            <input value="Submit" type="submit">
+        </label>
+    </form>
+</body>
+</html>

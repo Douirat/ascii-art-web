@@ -4,26 +4,18 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"github.com/Douirat/ascii-art-web/logic"
-	// "html/template"
+	"github.com/Douirat/ascii-art-web/routers"
+	"github.com/gorilla/mux"
 )
 
-func RenderResult(wr http.ResponseWriter, rq *http.Request) {
-	rq.ParseForm()
-	data, _ := logic.Readfile("../data/standard.txt")
-	if len(data) == 0 {
-		fmt.Println("file data is not valid")
-		return
-	}
-	result := logic.InputHandler("Hello World", data)
-	fmt.Fprintf(wr, result)
-}
+
 
 func main() {
-	http.HandleFunc("/ascii", RenderResult)
+	router := mux.NewRouter()
+	routers.Routing(router)
 	fmt.Println("Server starts at port 9090...")
-	err := http.ListenAndServe(":9090", nil)
+	err := http.ListenAndServe(":9090", router)
 	if err != nil {
-		log.Fatal("ListenAndServe: ", err)
+		log.Fatal("Error listening to tcp connection", err)
 	}
 }
