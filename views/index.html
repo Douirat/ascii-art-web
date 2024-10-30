@@ -8,11 +8,12 @@
 </head>
 
 <body>
-    <form method="post" action="/ascii">
+    <form method="post" action="/ascii-art">
         <label for="userInput"></label>
         <textarea name="userInput" id="userInput" placeholder="Enter your input"></textarea>
         <label for="selectType">
             <select name="selectType" id="selectType">
+                <Option>Banners</Option>
                 <option value="../data/shadow.txt">Shadow</option>
                 <option value="../data/standard.txt">Standard</option>
                 <option value="../data/thinkertoy.txt">Thinkertoy</option>
@@ -20,5 +21,9 @@
             <input value="Submit" type="submit">
         </label>
     </form>
+    <pre id="result"></pre>
+    <script>
+        document.getElementById("result").innerHTML = `{{.}}`
+    </script>
 </body>
 </html>

@@ -11,7 +11,7 @@ func InputHandler(input string, data map[rune][]string) string {
 	result := ""
 	str := ""
 	for i := 0; i < len(input); i++ {
-		if rune(input[i]) == 92 && rune(input[i+1]) == 110 {
+		if rune(input[i]) == 13 && rune(input[i+1]) == 10 {
 			result += Artify(str, data) + "\n"
 			str = ""
 			i ++
